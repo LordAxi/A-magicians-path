@@ -3,7 +3,7 @@ require "ruby2d"
 $background_music_volume = 100
 
 
-$background_music = Music.new('background_music.mp3')
+$background_music = Music.new('assets/sounds/uns.mp3')
 $background_music.loop = true
 $background_music.volume = $background_music_volume
 

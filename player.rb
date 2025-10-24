@@ -6,7 +6,7 @@ speed_multipier = 1
 $speed = 20.0 / 64.0 * speed_multipier  
 $moveable = true
 
-$player = Image.new("player.png",
+$player = Image.new("assets/textures/entities/player/player.png",
   width: width,
   height: height,
   x: $w / 2 - width / 2,
@@ -14,7 +14,7 @@ $player = Image.new("player.png",
   z: 2000
 )
 $player_shadow = Image.new(
-        "shadow.png",
+        "assets/textures/general/shadow.png",
   x: 0,
   y: 0,
   width: width,

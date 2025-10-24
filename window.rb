@@ -26,7 +26,7 @@ set borderless: false
 set fullscreen: false
 set diagnostics: true
 set fps_cap: 720
-set icon: "player.png"
+set icon: "assets/textures/entities/player/player.png"
 
 
 puts Window.height
