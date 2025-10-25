@@ -5,6 +5,7 @@ height = 20
 speed_multipier = 1
 $speed = 20.0 / 64.0 * speed_multipier  
 $moveable = true
+$sneaking = false
 
 $player = Image.new("assets/textures/entities/player/player.png",
   width: width,
@@ -48,6 +49,18 @@ def move_player
   end
   if $down_pressed && $player.y < $h - 20
     $player.y += speed_adjusted
+  end
+end
+
+def sneak()
+  if $sneaking == false
+  $player.height = height = 10
+  $sneaking = true
+  $player.y += 10
+  elsif $sneaking == true
+  $player.height = height = 20
+  $sneaking = false 
+  $player.y -= 10
   end
 end
 

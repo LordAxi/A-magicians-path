@@ -47,10 +47,13 @@ last_change = Time.now
 
 start_bgm()
 update do
-  if !$jumping == true
+  if $jumping == false && $sneaking == false
   $player_shadow.x = $player.x 
   $player_shadow.y = $player.y + $tile_size - 6
-  else
+  elsif $sneaking == true
+    $player_shadow.x = $player.x 
+    $player_shadow.y = $player.y + $tile_size / 2 - 6
+  elsif $jumping == true
     $player_shadow.x = $player.x
   end  
   if $controller_button_held_up == true

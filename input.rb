@@ -13,6 +13,8 @@ on :key_down do |event|
   case event.key 
   when "space"
     start_jump()
+  when "left shift"
+    sneak()  
   when "1"
     hotbar_select_slot(1)
   when "2"
@@ -51,6 +53,8 @@ on :controller_button_down do |event|
     $controller_button_held_right = true
   when :a
     start_jump() 
+  when :x
+    sneak()  
   end  
 end
 
