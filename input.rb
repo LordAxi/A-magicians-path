@@ -17,14 +17,20 @@ on :key_down do |event|
     sneak()  
   when "1"
     hotbar_select_slot(1)
+    delete_map()
+    load_map(JSON.parse(File.read($install_path + "assets/maps/flowers.json")))
   when "2"
     hotbar_select_slot(2)
+    delete_map()
+    load_map(JSON.parse(File.read($install_path + "assets/maps/park.json")))
   when "3"
     hotbar_select_slot(3)
   when "4"
     hotbar_select_slot(4)
   when "5"
     hotbar_select_slot(5)  
+  when "6"
+    take_damage(-1.5)
   end  
 
 end

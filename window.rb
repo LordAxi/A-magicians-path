@@ -1,6 +1,7 @@
 require 'ruby2d'
 $w = 640
 $h = ($w * 0.5625).to_i
+$install_path = "/home/axi/A-magicians-path/"
 require_relative "shadow.rb"
 require_relative "map.rb" 
 require_relative "input.rb"
@@ -11,8 +12,8 @@ require_relative "jump.rb"
 require_relative "hotbar.rb"
 require_relative "background-music.rb"
 require_relative "textbox.rb"
-# require_relative "discordrpc.rb"
-
+require_relative "hearts.rb"
+require_relative "game_over.rb"
 
 
 set title: "A magicians path"
@@ -23,11 +24,11 @@ set viewport_width: $w
 set viewport_height: $h
 set resizable: true
 set borderless: false
-set fullscreen: false
+set fullscreen: true
 set diagnostics: true
 set fps_cap: 720
-set icon: "assets/textures/entities/player/player.png"
-
+set icon: $install_path + "assets/textures/entities/player/player.png"
+load_map(JSON.parse(File.read($install_path + "assets/maps/flowers.json")))
 
 puts Window.height
 
@@ -65,11 +66,11 @@ update do
   elsif $controller_button_held_left == true
     $left_pressed = true
     move_player()
-  elsif $controller_button_held_right == true    
+  elsif $controller_button_held_right == true
     $right_pressed = true
     move_player()
   end  
-  if $jumping
+  if $jumping && $moveable
 
     offset = Math.sin($jump_progress) * $jump_height
 

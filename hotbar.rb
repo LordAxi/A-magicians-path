@@ -5,7 +5,7 @@ height = 20
 $slot_active = 1
 
 $hotbar = Image.new(
-    "assets/textures/gui/hotbar.png",
+    $install_path + "assets/textures/gui/hotbar.png",
     width: width,
     height: height,
     x: ($w / 2) - (width / 2),
@@ -13,7 +13,7 @@ $hotbar = Image.new(
     z: 20000
 )
 $hotbar_slot_active = Image.new(
-    "assets/textures/gui/hotbar_slot_active.png",
+    $install_path + "assets/textures/gui/hotbar_slot_active.png",
     width: height ,
     height: height,
     x: ($w / 2) - (width / 2),
