@@ -3,7 +3,7 @@ require "ruby2d"
         x: 0,
         y: 0,
         size: $w,
-        color: [0, 0, 0, 0],
+        color: [0, 0, 0, 0.0],
         z:9999
     )
 

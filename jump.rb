@@ -1,16 +1,19 @@
- require "ruby2d"
-# Oben bei deinen globalen Variablen:
-$jumping = false
-$jump_progress = 0.0
-$jump_base_y = 0
-$jump_height = 30
+require "ruby2d"
 
+$jump = {
+  "state" => false,
+  "progress" => 0.0,
+  "base_y" => 0,
+  "height" => 30,
+  "energy" => 1,
+}
 def start_jump
-  if $sneaking == false
-    return if $jumping
-    $jumping = true
-    $jump_progress = 0.0
-    $jump_base_y = $player.y
+  if !$sneaking && $energy >= $jump["energy"] && $moveable
+    return if $jump["state"]
+    change_energy(- $jump["energy"])
+    $jump["state"] = true
+    $jump["progress"] = 0.0
+    $jump["base_y"] = $player.y
   end  
 end
 

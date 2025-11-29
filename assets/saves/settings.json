@@ -1,0 +1,10 @@
+{
+        "fullscreen":{
+        "default": false,
+        "set-value": 0
+    },
+    "gui_scale":{
+        "default": 1,
+        "set-value": 0
+    }
+}

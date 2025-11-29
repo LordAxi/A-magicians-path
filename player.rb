@@ -54,11 +54,15 @@ def move_player
     if $down_pressed && $player.y < $h - 20
       $player.y += speed_adjusted
     end
+  
+    $energy_bar_values["x"] = $player.x
+    $energy_bar_values["y"] = $player.y
+    replace_energy($energy_bar_values["state"])
   end
 end
 
 def sneak()
-  if !$jumping && !$sneaking && $moveable
+  if !$jump["state"] && !$sneaking && $moveable
     $player.height = height = 10
     $sneaking = true
     $player.y += 10

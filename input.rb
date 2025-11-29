@@ -11,8 +11,11 @@ end
 
 on :key_down do |event|
   case event.key 
+  when "escape"
+    pause_menu()  
   when "space"
     start_jump()
+    
   when "left shift"
     sneak()  
   when "1"

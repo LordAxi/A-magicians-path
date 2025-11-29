@@ -8,7 +8,7 @@ $heart1 = Tileset.new(
     scale: 32.0 / $tile_size.to_f / 2,
     padding:0,
     spacing:0,
-    z: 400
+    z: 2000
 )
 $heart2 = Tileset.new(
     $install_path + "assets/textures/gui/heart.png",
@@ -17,7 +17,7 @@ $heart2 = Tileset.new(
     scale: 32.0 / $tile_size.to_f / 2,
     padding:0,
     spacing:0,
-    z: 400
+    z: 2000
 )
 $heart3 = Tileset.new(
     $install_path + "assets/textures/gui/heart.png",
@@ -26,7 +26,7 @@ $heart3 = Tileset.new(
     scale: 32.0 / $tile_size.to_f / 2,
     padding:0,
     spacing:0,
-    z: 400
+    z: 2000
 )
 $heart1.define_tile("red_full", 0, 0)
 $heart1.define_tile("red_half", 1, 0)

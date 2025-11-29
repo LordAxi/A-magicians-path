@@ -16,3 +16,14 @@
         - ...you need to have the rights to the art your contributing.
         - ...you need to know that by contributing art you keep the rights to the art, but allow This Project to use the art.
         - ...if you ever decide you want your art to get removed from this project, you need to create a Issue or Pull-Request. Processing those Issues can take a while.
+
+## Security
+
+    - A magicians path is an open-source project. That means you can review all of the code yourself — there's no hidden or malicious behavior.
+
+        -To help keep A magicians path safe for everyone:
+
+            - Please do not include external scripts from untrusted sources in your pull requests.
+            - All contributions should follow best practices for privacy and security.
+
+*Thank you for helping keep A magicians path clean and safe.*

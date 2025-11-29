@@ -2,6 +2,7 @@ require 'ruby2d'
 $w = 640
 $h = ($w * 0.5625).to_i
 $install_path = "/home/axi/A-magicians-path/"
+$game_state = "ingame"
 require_relative "shadow.rb"
 require_relative "map.rb" 
 require_relative "input.rb"
@@ -14,7 +15,9 @@ require_relative "background-music.rb"
 require_relative "textbox.rb"
 require_relative "hearts.rb"
 require_relative "game_over.rb"
-
+require_relative "energy-bar.rb"
+require_relative "armor-bar.rb"
+require_relative "pause-menu.rb"
 
 set title: "A magicians path"
 
@@ -48,13 +51,15 @@ last_change = Time.now
 
 start_bgm()
 update do
-  if $jumping == false && $sneaking == false
+  
+
+  if $jump["state"] == false && $sneaking == false
   $player_shadow.x = $player.x 
   $player_shadow.y = $player.y + $tile_size - 6
   elsif $sneaking == true
     $player_shadow.x = $player.x 
     $player_shadow.y = $player.y + $tile_size / 2 - 6
-  elsif $jumping == true
+  elsif $jump["state"] == true
     $player_shadow.x = $player.x
   end  
   if $controller_button_held_up == true
@@ -70,17 +75,22 @@ update do
     $right_pressed = true
     move_player()
   end  
-  if $jumping && $moveable
-
-    offset = Math.sin($jump_progress) * $jump_height
-
-    $player.y = $jump_base_y - offset
+  if $jump["state"] && $moveable
     
-    $jump_progress += 0.04
+    offset = Math.sin($jump["progress"]) * $jump["height"]
     
-    if $jump_progress >= Math::PI
-      
-      $jumping = false
+    $player.y = $jump["base_y"] - offset
+    $energy_bar_values["x"] = $player.x
+    $energy_bar_values["y"] = $player.y
+    replace_energy($energy_bar_values["state"])
+    $jump["progress"] += 0.04
+    
+    if $jump["progress"] >= Math::PI
+      $player.y = $jump["base_y"]
+      $energy_bar_values["x"] = $player.x
+    $energy_bar_values["y"] = $player.y
+    replace_energy($energy_bar_values["state"])
+      $jump["state"] = false
  
     end
   end
@@ -88,6 +98,8 @@ update do
     fps.text= "FPS: #{Window.fps.round()}"
     puts "FPS:  #{Window.fps.round}"
     last_change = Time.now
+
+    change_energy(0.5)
   end
 end
 
