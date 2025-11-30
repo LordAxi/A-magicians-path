@@ -3,9 +3,9 @@ $w = 640
 $h = ($w * 0.5625).to_i
 $install_path = "/home/axi/A-magicians-path/"
 $game_state = "ingame"
+require_relative "input.rb"
 require_relative "shadow.rb"
 require_relative "map.rb" 
-require_relative "input.rb"
 require_relative "player.rb"
 require_relative "shader.rb"
 require_relative "sun-light.rb"
@@ -18,6 +18,9 @@ require_relative "game_over.rb"
 require_relative "energy-bar.rb"
 require_relative "armor-bar.rb"
 require_relative "pause-menu.rb"
+require_relative "menu.rb"
+require_relative "credits.rb"
+menu()
 
 set title: "A magicians path"
 
@@ -44,9 +47,9 @@ fps = Text.new("FPS: ---",
     style: 'bold',
     size: 20,
     color: 'blue',
-    z: 10000)
+    z: 1000000000)
     last_change = Time.now
-last_change = Time.now
+    last_change_2 = Time.now
 
 
 start_bgm()
@@ -100,7 +103,22 @@ update do
     last_change = Time.now
 
     change_energy(0.5)
+  elsif Time.now - last_change_2 >= 0.02
+    if $credits_values["state"] == true && $game_state == "credits"
+      $credits_line_group.each_with_index do |element, id|
+        $credits_line_group[id].y -= 0.16
+        lines = $credits_line_group.size - 1
+        
+        if $credits_line_group[lines].y < $credits_line_group[lines].height
+          credits_menu()
+        
+        end
+      
+      end
+    end
+    last_change_2 = Time.now
   end
+
 end
 
 show
