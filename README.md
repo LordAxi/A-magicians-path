@@ -23,7 +23,7 @@
 
   - To help keep A magicians path safe for everyone:
 
-    c- Please do not include external scripts from untrusted sources in your pull requests.
+    - Please do not include external scripts from untrusted sources in your pull requests.
 
     - All contributions should follow best practices for privacy and security.
 
