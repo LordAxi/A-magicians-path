@@ -19,7 +19,7 @@ def pause_menu()
       $pause_menu_values["state"] = true
       $game_state = "paused"
       $moveable = false
-      $pause_menu_values["hovered"]
+      $pause_menu_values["hovered"] = "continue"
       $pause_blur.color = [0, 0, 0, 0.3]
       $pause_text = Text.new("Pause Menu",
                       x: $pause_menu_values["x_offset"], y:0,
